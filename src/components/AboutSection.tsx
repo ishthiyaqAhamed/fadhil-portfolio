@@ -1,0 +1,231 @@
+"use client";
+
+import React, { useRef } from "react";
+import Image from "next/image";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { portfolioData } from "@/data/portfolio";
+import { FadeUp } from "./MotionPrimitives";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./SocialIcons";
+
+const EMERALD_CUT_CLIP =
+  "polygon(10% 0%, 90% 0%, 100% 8%, 100% 92%, 90% 100%, 10% 100%, 0% 92%, 0% 8%)";
+
+export default function AboutSection() {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [7, -7]), {
+    stiffness: 180,
+    damping: 22,
+  });
+  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-7, 7]), {
+    stiffness: 180,
+    damping: 22,
+  });
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const rect = frameRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    pointerX.set((e.clientX - rect.left) / rect.width - 0.5);
+    pointerY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handlePointerLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
+
+  return (
+    <section
+      id="about"
+      className="relative w-full grid grid-cols-1 lg:grid-cols-2 min-h-[680px] lg:min-h-[760px] overflow-hidden"
+    >
+      {/* Left Half: Dark Canvas with Creative Faceted Gem-Cut Portrait */}
+      <div className="relative bg-[#0c0c0c] flex items-center justify-center px-6 sm:px-12 lg:px-14 py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] diagonal-corner-dark-tl"
+        />
+
+        {/* Subtle Emerald & Sapphire Ambient Aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-teal-500/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-amber-500/10 blur-3xl"
+        />
+
+        {/* Subtle Rotating Gemological Calibration Ring Behind Portrait */}
+        <motion.svg
+          aria-hidden="true"
+          viewBox="0 0 500 500"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 75, repeat: Infinity, ease: "linear" }}
+          className="pointer-events-none absolute w-[390px] h-[390px] sm:w-[490px] sm:h-[490px] text-teal-400 opacity-[0.18]"
+        >
+          <circle
+            cx="250"
+            cy="250"
+            r="232"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="4 10"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="204"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.8"
+          />
+        </motion.svg>
+
+        {/* Interactive 3D Faceted Emerald-Cut Frame */}
+        <motion.div
+          ref={frameRef}
+          onPointerMove={handlePointerMove}
+          onPointerLeave={handlePointerLeave}
+          initial={{ opacity: 0, y: 24, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            perspective: 1000,
+            rotateX,
+            rotateY,
+          }}
+          className="relative z-10 w-full max-w-[390px] sm:max-w-[420px] group"
+        >
+          {/* Offset Faceted Geometric Wireframe Shadow Layer */}
+          <div
+            aria-hidden="true"
+            style={{ clipPath: EMERALD_CUT_CLIP }}
+            className="absolute -inset-3 translate-x-3 translate-y-3 bg-teal-500/[0.08] border border-teal-400/25 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4"
+          />
+
+          {/* Main Emerald-Cut Bezel */}
+          <div
+            style={{ clipPath: EMERALD_CUT_CLIP }}
+            className="relative aspect-[4/4.9] w-full bg-gradient-to-br from-teal-500/35 via-neutral-800 to-amber-500/30 p-[2px] shadow-[0_28px_70px_rgba(0,0,0,0.75)]"
+          >
+            {/* Inner Cut Image Container */}
+            <div
+              style={{ clipPath: EMERALD_CUT_CLIP }}
+              className="relative w-full h-full overflow-hidden bg-neutral-950"
+            >
+              <Image
+                src={portfolioData.profile.aboutImage}
+                alt="Fadhil Zakwan inspecting rare gemstones at exhibition"
+                fill
+                sizes="(max-width: 1024px) 90vw, 420px"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                priority
+              />
+
+              {/* Subtle Editorial Vignette */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/15" />
+
+              {/* Specular Facet Light Sweep on Hover */}
+              <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg]" />
+
+              {/* Bottom Caption Inside Cut Frame */}
+              <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between gap-2 text-white">
+                <div>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-teal-300">
+                    Field Curation
+                  </span>
+                  <span className="block font-display text-xs sm:text-sm font-bold tracking-tight">
+                    Rare Gem Inspection
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-400/30 bg-black/60 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>GIA &bull; Trade Floor</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Right Half: White Canvas with Bio & Social Icons Pill */}
+      <div className="relative bg-white text-[#0d0d0d] flex flex-col justify-between px-6 sm:px-12 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 right-0 w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] diagonal-corner-light-br"
+        />
+
+        <div className="relative z-10 my-auto max-w-lg">
+          <FadeUp>
+            <h2 className="font-display font-extrabold tracking-[-0.035em] text-[clamp(2.75rem,5.2vw,4.5rem)] leading-[0.94] text-[#0d0d0d]">
+              <span className="block">Hi, I’m</span>
+              <span className="block">Fadhil</span>
+              <span className="block">Zakwan</span>
+            </h2>
+          </FadeUp>
+
+          <FadeUp delay={0.12} className="mt-7 sm:mt-8 space-y-4">
+            <p className="text-[15px] sm:text-base leading-[1.7] text-[#262626] font-normal">
+              {portfolioData.profile.aboutBio}
+            </p>
+            <p className="text-[15px] sm:text-base leading-[1.7] text-[#404040] font-normal">
+              {portfolioData.profile.aboutBioSecondary}
+            </p>
+          </FadeUp>
+        </div>
+
+        {/* Bottom-Right Social Icons Pill */}
+        <FadeUp delay={0.2} className="relative z-10 mt-12 flex justify-start sm:justify-end">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#1a1a1a]/25 bg-neutral-50/90 px-3 py-1.5 text-[#111111] shadow-xs">
+            <motion.a
+              href={portfolioData.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              whileHover={{ scale: 1.12, y: -1 }}
+              whileTap={{ scale: 0.94 }}
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-colors duration-200"
+            >
+              <LinkedInIcon className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              href={portfolioData.socials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              title="Facebook"
+              whileHover={{ scale: 1.12, y: -1 }}
+              whileTap={{ scale: 0.94 }}
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-colors duration-200"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              href={portfolioData.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              whileHover={{ scale: 1.12, y: -1 }}
+              whileTap={{ scale: 0.94 }}
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-[#E1306C] hover:bg-[#E1306C] hover:text-white transition-colors duration-200"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}

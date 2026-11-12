@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#4d4d4d"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#a3a3a3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <polygon points="0,420 140,290 250,340 420,145 590,310 700,260 800,380 800,500 0,500" fill="#111111"/>
+  <polygon points="420,145 360,245 405,235 385,295 450,245 485,275 515,235" fill="url(#snow)"/>
+  <polygon points="140,290 100,345 145,335 170,360 195,330" fill="#d4d4d4" opacity="0.85"/>
+  <polygon points="700,260 660,310 695,305 725,330 745,298" fill="#cccccc" opacity="0.8"/>
+  <path d="M0,445 Q220,405 430,440 T800,425 L800,500 L0,500 Z" fill="#080808"/>
+  <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="1">
+    <line x1="0" y1="60" x2="800" y2="60"/>
+    <line x1="0" y1="120" x2="800" y2="120"/>
+  </g>
+</svg>
+
