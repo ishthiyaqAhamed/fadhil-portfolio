@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -10,6 +10,7 @@ export default function Navbar({ isSubpage = false }: { isSubpage?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -35,6 +36,29 @@ export default function Navbar({ isSubpage = false }: { isSubpage?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isSubpage]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMobileOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileOpen]);
+
   const resolveHref = (href: string) => (isSubpage ? `/${href}` : href);
 
   // Over the hero mountain landscape: transparent crystal glass with white ink
@@ -42,7 +66,18 @@ export default function Navbar({ isSubpage = false }: { isSubpage?: boolean }) {
   const overHero = !isSubpage && !scrolled;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-5 pointer-events-none">
+    <header
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-5 pointer-events-none"
+    >
+      {/* Full-viewport tap/click catcher behind navbar & drawer when mobile menu is open */}
+      {mobileOpen && (
+        <div
+          aria-hidden="true"
+          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 z-[-1] md:hidden pointer-events-auto"
+        />
+      )}
       <motion.nav
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
