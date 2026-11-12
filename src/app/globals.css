@@ -66,6 +66,46 @@ body {
   -webkit-mask-image: radial-gradient(ellipse at 100% 100%, black 0%, rgba(0, 0, 0, 0.55) 36%, transparent 72%);
 }
 
+/* Hero Mountain & Horizontal Cloud Parallax Keyframes */
+@keyframes cloud-drift-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+@keyframes hero-mountain-breathe {
+  0%,
+  100% {
+    transform: scale(1.01);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-cloud-slow {
+  animation: cloud-drift-ltr 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-medium {
+  animation: cloud-drift-ltr 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-fast {
+  animation: cloud-drift-ltr 15s linear infinite;
+  will-change: transform;
+}
+
+.animate-mountain-breathe {
+  animation: hero-mountain-breathe 36s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
