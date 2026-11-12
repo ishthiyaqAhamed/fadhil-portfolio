@@ -27,21 +27,23 @@ export default function EducationSection() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Top Wide Architectural Banner Image */}
+        {/* Top GIA Institution Banner */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full h-[210px] sm:h-[290px] lg:h-[330px] overflow-hidden bg-neutral-100 mb-12 sm:mb-16 group"
+          className="relative w-full h-[200px] sm:h-[260px] lg:h-[300px] rounded-3xl border border-neutral-200/85 bg-white shadow-[0_14px_40px_rgba(0,0,0,0.04)] overflow-hidden mb-12 sm:mb-16 group p-6 sm:p-10"
         >
-          <Image
-            src={portfolioData.profile.studiesBanner}
-            alt="Architectural symmetry representing academic studies"
-            fill
-            sizes="(max-width: 1200px) 100vw, 1152px"
-            className="object-cover grayscale contrast-115 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={portfolioData.profile.studiesBanner}
+              alt="GIA — Gemological Institute of America (Knowledge, Integrity, Excellence)"
+              fill
+              sizes="(max-width: 1200px) 100vw, 1152px"
+              className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
+          </div>
         </motion.div>
 
         {/* Bottom 2-Column Content */}

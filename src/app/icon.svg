@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" />
+  <!-- Geometric F -->
+  <path
+    d="M11 19 H26.2 V24.2 H16.6 V29.6 H24.5 V34.6 H16.6 V45 H11 Z"
+    fill="#0d0d0d"
+  />
+  <!-- Geometric Z -->
+  <path
+    d="M28.2 19 H45.2 V24.1 L34.9 39.8 H45.2 V45 H28.2 V39.9 L38.5 24.2 H28.2 Z"
+    fill="#0d0d0d"
+  />
+  <!-- Teal Accent Period -->
+  <rect x="48.5" y="39.3" width="5.8" height="5.7" rx="1" fill="#0f766e" />
+</svg>
+

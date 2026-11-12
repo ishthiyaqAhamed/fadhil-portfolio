@@ -182,7 +182,7 @@ export default function BlogGalleriaSection() {
           </FadeUp>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {posts.map((post, idx) => (
+            {posts.slice(0, 5).map((post, idx) => (
               <div key={post.slug} className="flex flex-col">
                 <GalleriaCard
                   post={post}
@@ -198,6 +198,53 @@ export default function BlogGalleriaSection() {
                   </p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Field & Industry Dispatches Strip (Chinafort, GIA, Cut & Polishing, History, Sri Lanka Districts, Mining) */}
+        <div className="mt-14 sm:mt-16 pt-10 border-t border-neutral-200">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-teal-800">
+              Field Reports, GIA &amp; Sri Lankan Gemology
+            </p>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0d0d0d] hover:text-teal-700 transition-colors"
+            >
+              <span>Browse All {posts.length} Blogs</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {posts.slice(5).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex items-center gap-4 rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3.5 hover:border-teal-700/40 hover:bg-white hover:shadow-sm transition-all duration-200"
+              >
+                <div className="relative w-18 h-18 shrink-0 overflow-hidden rounded-xl bg-neutral-200">
+                  <Image
+                    src={post.image}
+                    alt={post.gemName}
+                    fill
+                    sizes="72px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-teal-700">
+                    {post.gemName}
+                  </span>
+                  <h3 className="mt-0.5 font-display text-sm font-bold leading-snug text-[#0d0d0d] line-clamp-2 group-hover:text-teal-800 transition-colors">
+                    {post.title}
+                  </h3>
+                  <span className="mt-1 block font-mono text-[10px] text-neutral-500">
+                    {post.readTime}
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -19,11 +19,12 @@ export interface BlogPost {
   gemName: string;
   title: string;
   category: string;
+  topicGroup: "Rare Gemstones" | "Sri Lanka & Mining" | "Markets & GIA" | "Cut & History";
   date: string;
   readTime: string;
   excerpt: string;
   image: string;
-  placement: "top-left" | "top-center" | "right-tall" | "bottom-left" | "bottom-center";
+  placement?: "top-left" | "top-center" | "right-tall" | "bottom-left" | "bottom-center";
   specs: {
     mineralSpecies: string;
     origin: string;
@@ -51,7 +52,7 @@ export const portfolioData = {
       "From microscopic inclusion mapping and ethical provenance verification to directing high-contrast luxury campaigns, I partner with collectors, ateliers, and emerging houses to transform raw mineral rarity into enduring visual authority.",
     studiesIntro:
       "My academic journey built a disciplined foundation in mineralogical analysis, optical crystallography, and disciplined research — shaping how I evaluate every stone and present every story.",
-    studiesBanner: "/images/studies-banner.jpg",
+    studiesBanner: "/images/gia-studies.jpg",
   },
 
   navLinks: [
@@ -149,6 +150,7 @@ export const portfolioData = {
       gemName: "Paraíba Tourmaline",
       title: "Paraíba Tourmaline: The Neon Copper Glow",
       category: "Rare Cuprian Elbaite",
+      topicGroup: "Rare Gemstones",
       date: "October 2025",
       readTime: "5 min read",
       excerpt:
@@ -177,6 +179,7 @@ export const portfolioData = {
       gemName: "Padparadscha Sapphire",
       title: "Padparadscha Sapphire: Dawn Lotus Equilibrium",
       category: "Rare Corundum",
+      topicGroup: "Rare Gemstones",
       date: "September 2025",
       readTime: "5 min read",
       excerpt:
@@ -205,6 +208,7 @@ export const portfolioData = {
       gemName: "Color-Change Alexandrite",
       title: "Alexandrite: Emerald by Day, Ruby by Night",
       category: "Phenomenal Chrysoberyl",
+      topicGroup: "Rare Gemstones",
       date: "August 2025",
       readTime: "6 min read",
       excerpt:
@@ -233,6 +237,7 @@ export const portfolioData = {
       gemName: "Marquise Tanzanite",
       title: "Tanzanite: Single-Origin Trichroic Zoisite",
       category: "Rare Pleochroism",
+      topicGroup: "Rare Gemstones",
       date: "July 2025",
       readTime: "4 min read",
       excerpt:
@@ -261,6 +266,7 @@ export const portfolioData = {
       gemName: "Sapphire, Ruby & Emerald",
       title: "Corundum & Beryl: Crown Angles & Light Return",
       category: "Optical Gemology",
+      topicGroup: "Rare Gemstones",
       date: "June 2025",
       readTime: "5 min read",
       excerpt:
@@ -282,6 +288,174 @@ export const portfolioData = {
         "Every gemstone species bends incoming light according to its refractive index (RI) and critical angle. Corundum—encompassing both royal blue sapphire and crimson ruby—bends light sharply inward, delivering crisp brilliance even in relatively shallow cuts.",
         "Emerald, a chromium- and vanadium-colored variety of beryl, possesses a noticeably lower refractive index. If cut too shallow, light escapes out the pavilion ('windowing'); cut too deep, and its lush green body color turns dark.",
         "Mastering how RI dictates facet geometry is the bridge between geological science and fine jewelry artistry.",
+      ],
+    },
+    {
+      slug: "chinafort-gem-market-beruwala",
+      gemName: "Chinafort Market",
+      title: "Chinafort Gem Market: Inside Beruwala's Historic Trading Floor",
+      category: "Gem Trade & Markets",
+      topicGroup: "Markets & GIA",
+      date: "November 2025",
+      readTime: "6 min read",
+      excerpt:
+        "How the narrow coastal lanes of Chinafort in Beruwala became the pulse of Sri Lanka's international colored-gemstone trade.",
+      image: "/images/gems/chinafort-market.jpg",
+      specs: {
+        mineralSpecies: "Blue Sapphire, Spinel & Tourmaline",
+        origin: "Beruwala, Sri Lanka",
+        refractiveIndex: "1.718 – 1.770",
+        hardness: "8.0 – 9.0 Mohs",
+        rarityNote: "Centuries-old open-air bourse",
+      },
+      overview:
+        "Each morning from 7:30 AM, brokers, cutters, and international buyers gather along Chinafort's sunlit alleys to negotiate folded white gem papers ('lotus packets').",
+      designConcept:
+        "Natural morning coastal daylight provides consistent color-temperature illumination ideal for judging subtle cornflower blues and Padparadscha tones.",
+      content: [
+        "Tucked along Sri Lanka's southwest coast in Beruwala, Chinafort (Cheena Kotuwa) stands as one of the world's most vibrant and storied colored-gemstone markets. Named for early Chinese maritime traders, the quarter has been shaped for generations by Sri Lankan Moor merchant families.",
+        "Unlike enclosed glass-case jewelry fairs, business in Chinafort thrives on trust, speed, and trained eyes. Dealers unwrap crisp white paper parcels in natural daylight, inspecting unmounted sapphires, Padparadschas, spinels, and chrysoberyls with 10x triplet loupes.",
+        "A handshake—sealed softly under a cloth or over a cup of sweet milk tea—often finalizes high-value transactions destined for Geneva, Antwerp, Bangkok, and Hong Kong.",
+      ],
+    },
+    {
+      slug: "gia-laboratory-grading-and-origin",
+      gemName: "GIA Standards",
+      title: "GIA Gemological Grading: Science Behind Origin & Treatment Reports",
+      category: "Laboratory Standards",
+      topicGroup: "Markets & GIA",
+      date: "October 2025",
+      readTime: "6 min read",
+      excerpt:
+        "Inside the Gemological Institute of America's analytical toolkit—from LA-ICP-MS trace chemistry to FTIR and Raman inclusion spectroscopy.",
+      image: "/images/gems/gia-microscope.jpg",
+      specs: {
+        mineralSpecies: "Diamond & Colored Stone Standards",
+        origin: "Carlsbad / New York / Bangkok",
+        refractiveIndex: "Calibrated 1.30 – 2.42",
+        hardness: "Standardized 4Cs & Origin",
+        rarityNote: "Global laboratory benchmark",
+      },
+      overview:
+        "Founded in 1931 by Robert M. Shipley, GIA established the International Diamond Grading System and modern colored-stone laboratory verification.",
+      designConcept:
+        "Standardized D65 illumination, darkfield microscopy, and non-destructive laser chemistry separate natural unheated stones from diffused or synthetic counterparts.",
+      content: [
+        "In high-value gemology, visual beauty alone no longer determines provenance or market confidence. A GIA Identification and Origin Report anchors a gemstone's value with repeatable, peer-reviewed analytical data.",
+        "Behind every report lies multi-stage testing: UV-Vis-NIR spectroscopy confirms chromophore elements like titanium, iron, and chromium; FTIR spectroscopy detects polymer or oil fillers and low-temperature heat signatures; and LA-ICP-MS trace-element chemistry distinguishes Kashmir, Burmese, Madagascar, and Sri Lankan origins.",
+        "Understanding how GIA laboratories read microscopic crystal inclusions—from silk rutile needles to healed feathers—empowers gemologists to verify authenticity long before a stone reaches auction.",
+      ],
+    },
+    {
+      slug: "gemstone-cut-and-polishing-craft",
+      gemName: "Cut & Polishing",
+      title: "Cut & Polishing: Turning Rough Crystals into Optical Architecture",
+      category: "Lapidary Craft",
+      topicGroup: "Cut & History",
+      date: "September 2025",
+      readTime: "5 min read",
+      excerpt:
+        "From dopping and preforming on bronze laps to final cerium-oxide polish—how Sri Lankan and precision lapidaries unlock fire and brilliance.",
+      image: "/images/gems/cut-and-polishing.jpg",
+      specs: {
+        mineralSpecies: "Corundum, Beryl & Garnet",
+        origin: "Lapidary Workshop / Ratnapura",
+        refractiveIndex: "Angle-matched Critical Cuts",
+        hardness: "Diamond & Oxide Polish",
+        rarityNote: "Zero-window symmetry focus",
+      },
+      overview:
+        "A poorly proportioned cut wastes 40% of a gem's brilliance; precision pavilion angles bounce light back cleanly through the crown facets.",
+      designConcept:
+        "Traditional wooden-and-steel Sri Lankan 'hanapora' wheels alongside modern digital faceting heads balance carat weight retention with optical symmetry.",
+      content: [
+        "When a rough sapphire leaves the earth, it resembles a water-worn pebble more than a jewel. Transforming that raw crystal requires the lapidary to study internal zoning, pleochroic axes, and inclusion placement before touching a saw blade.",
+        "During preforming and faceting, the cutter dop-mounts the stone and grinds pavilion facets to meet or exceed the mineral's critical angle—preventing light leakage ('windowing') through the belly of the stone. Crown facets are then sequenced to split white light into crisp scintillation.",
+        "The final stage—polishing on tin, zinc, or composite laps charged with ultra-fine diamond paste or alumina—removes sub-micron scratches so every facet junction meets with mirror-sharp precision.",
+      ],
+    },
+    {
+      slug: "gemstone-history-silk-road-to-crowns",
+      gemName: "Gemstone History",
+      title: "Gemstone History: From Ancient Serendib Trade Routes to Crown Jewels",
+      category: "Heritage & Provenance",
+      topicGroup: "Cut & History",
+      date: "August 2025",
+      readTime: "6 min read",
+      excerpt:
+        "Tracing how Ceylon star rubies, Kashmir sapphires, and Golconda diamonds shaped royal treasuries from Marco Polo's chronicles to the Smithsonian.",
+      image: "/images/gems/gemstone-history.jpg",
+      specs: {
+        mineralSpecies: "Historic Star Ruby & Corundum",
+        origin: "Ceylon / Silk Road / Museum Vaults",
+        refractiveIndex: "1.762 – 1.770",
+        hardness: "9.0 Mohs",
+        rarityNote: "138.7 ct Rosser Reeves lineage",
+      },
+      overview:
+        "For over two millennia, Sri Lanka—known historically as Taprobane and Serendib—supplied royal courts from Rome and Persia to imperial China.",
+      designConcept:
+        "Cabochon-cut asterism stones preserved ancient polishing traditions long before modern brilliant faceting geometries emerged in Europe.",
+      content: [
+        "Before modern geology mapped continental drift, ancient mariners and Silk Road caravans knew a small Indian Ocean island called Serendib as the fountainhead of precious stones. Marco Polo famously documented a colossal ruby of Sri Lanka coveted by Kublai Khan in the 13th century.",
+        "Historic treasures such as the 138.7-carat Rosser Reeves Star Ruby—housed today in the Smithsonian Institution—carry that lineage forward. Cut en cabochon to showcase a razor-sharp six-rayed asterism formed by microscopic rutile needles, it embodies centuries of Ceylon lapidary mastery.",
+        "Studying historical cutting styles—from Mughal table cuts and old mine cushions to Georgian closed-back foil settings—reveals how human culture and optical science evolved side by side.",
+      ],
+    },
+    {
+      slug: "gemstone-districts-of-sri-lanka",
+      gemName: "Sri Lanka Districts",
+      title: "Gemstone Districts of Sri Lanka: Ratnapura, Elahera, Okkampitiya & Meetiyagoda",
+      category: "Regional Geology",
+      topicGroup: "Sri Lanka & Mining",
+      date: "July 2025",
+      readTime: "7 min read",
+      excerpt:
+        "A regional field guide across Sri Lanka's richest gem-bearing belts—from Ratnapura's alluvial sapphires to Meetiyagoda's rare blue moonstones.",
+      image: "/images/gems/sri-lanka-districts.jpg",
+      specs: {
+        mineralSpecies: "Sapphire, Spinel, Chrysoberyl & Moonstone",
+        origin: "Ratnapura / Elahera / Okkampitiya",
+        refractiveIndex: "1.520 – 1.770",
+        hardness: "6.0 – 9.0 Mohs",
+        rarityNote: "90% of island is Precambrian gem-bearing",
+      },
+      overview:
+        "Sri Lanka hosts one of the highest densities of diverse gem species per square kilometer on Earth, concentrated across distinct metamorphic and alluvial belts.",
+      designConcept:
+        "Each district produces signature mineral profiles shaped by local Highland Complex granulites and ancient river drainage basins.",
+      content: [
+        "Ratnapura—literally 'City of Gems' in Sinhala—anchors the southwest gem basin, famed for velvety Ceylon blue sapphires, Padparadscha corundum, cat's-eye chrysoberyl, and alexandrite resting in deep alluvial gravel beds known as illam.",
+        "Further north in Central Province, Elahera and Bakamuna yield vibrant violet-blue sapphires, vivid pink spinels, and emerald-green tourmalines. To the southeast, Okkampitiya and Kataragama are prized for golden-yellow sapphires, spessartine garnets, and high-clarity zircons.",
+        "Along the southern coast, Meetiyagoda stands apart as one of the world's finest sources of blue-sheen orthoclase moonstone—mined from kaolinized pegmatite veins rather than river gravels.",
+      ],
+    },
+    {
+      slug: "artisanal-gem-mining-in-sri-lanka",
+      gemName: "Artisanal Mining",
+      title: "Gem Mining in Sri Lanka: Traditional Illam Pits & Sustainable Traceability",
+      category: "Mining & Ethics",
+      topicGroup: "Sri Lanka & Mining",
+      date: "June 2025",
+      readTime: "6 min read",
+      excerpt:
+        "How small-scale shaft mining, woven bamboo basket washing, and strict land-rehabilitation rules make Sri Lankan gem mining uniquely sustainable.",
+      image: "/images/gems/gem-mining.jpg",
+      specs: {
+        mineralSpecies: "Alluvial Illam Gem Gravels",
+        origin: "Pelmadulla & Kuruwita, Sri Lanka",
+        refractiveIndex: "Multi-species Heavy Concentrates",
+        hardness: "Natural Water-Worn Crystals",
+        rarityNote: "Low-impact non-mechanized extraction",
+      },
+      overview:
+        "Unlike massive open-pit industrial mines, over 90% of Sri Lanka's gems are recovered by small cooperative teams working vertical timbered shafts by hand.",
+      designConcept:
+        "Circular woven rattan baskets ('koodai') use gentle river-water agitation so dense corundum, spinel, and zircon settle cleanly at the center.",
+      content: [
+        "Journey through Pelmadulla or Kuruwita at dawn and you will spot thatched palm-leaf roofs rising gently above emerald paddy fields. Beneath those simple shelters lie traditional Sri Lankan gem shafts ('pathal'), descending 10 to 30 meters through clay until miners strike the prized gem-bearing gravel layer called illam.",
+        "Excavation remains deliberately low-impact: heavy bulldozers and toxic chemical leaching are prohibited across licensed artisanal plots. Gravel is hoisted up in buckets and washed carefully inside shallow water-filled pits using circular woven baskets.",
+        "Once exhausted, licensed miners are legally required by the National Gem and Jewellery Authority to backfill shafts and restore the topsoil—allowing rice paddies and tea gardens to flourish again above earth that yielded million-year-old crystals.",
       ],
     },
   ] satisfies BlogPost[],
