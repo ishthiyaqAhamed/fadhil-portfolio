@@ -44,53 +44,10 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full grid grid-cols-1 lg:grid-cols-2 min-h-[680px] lg:min-h-[760px] overflow-hidden"
+      className="relative w-full bg-white grid grid-cols-1 lg:grid-cols-2 min-h-[680px] lg:min-h-[760px] overflow-hidden"
     >
-      {/* Left Half: Dark Canvas with Creative Faceted Gem-Cut Portrait */}
-      <div className="relative bg-[#0c0c0c] flex items-center justify-center px-6 sm:px-12 lg:px-14 py-16 sm:py-20 lg:py-24 overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] diagonal-corner-dark-tl"
-        />
-
-        {/* Subtle Emerald & Sapphire Ambient Aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-teal-500/15 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-amber-500/10 blur-3xl"
-        />
-
-        {/* Subtle Rotating Gemological Calibration Ring Behind Portrait */}
-        <motion.svg
-          aria-hidden="true"
-          viewBox="0 0 500 500"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 75, repeat: Infinity, ease: "linear" }}
-          className="pointer-events-none absolute w-[390px] h-[390px] sm:w-[490px] sm:h-[490px] text-teal-400 opacity-[0.18]"
-        >
-          <circle
-            cx="250"
-            cy="250"
-            r="232"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            strokeDasharray="4 10"
-          />
-          <circle
-            cx="250"
-            cy="250"
-            r="204"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.8"
-          />
-        </motion.svg>
-
-        {/* Interactive 3D Faceted Emerald-Cut Frame */}
+      {/* Left Half: Clean White Backdrop with Same-Size Creative Faceted Portrait Image Only */}
+      <div className="relative bg-white flex items-center justify-center px-6 sm:px-12 lg:px-14 py-16 sm:py-20 lg:py-24 overflow-hidden">
         <motion.div
           ref={frameRef}
           onPointerMove={handlePointerMove}
@@ -104,56 +61,31 @@ export default function AboutSection() {
             rotateX,
             rotateY,
           }}
-          className="relative z-10 w-full max-w-[390px] sm:max-w-[420px] group"
+          className="relative z-10 w-full max-w-[390px] sm:max-w-[420px] group drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
         >
-          {/* Offset Faceted Geometric Wireframe Shadow Layer */}
+          {/* Subtle Light Offset Faceted Silhouette */}
           <div
             aria-hidden="true"
             style={{ clipPath: EMERALD_CUT_CLIP }}
-            className="absolute -inset-3 translate-x-3 translate-y-3 bg-teal-500/[0.08] border border-teal-400/25 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4"
+            className="absolute -inset-3 translate-x-3 translate-y-3 bg-teal-600/[0.06] border border-teal-700/15 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4"
           />
 
-          {/* Main Emerald-Cut Bezel */}
+          {/* Main Emerald-Cut Photograph Only */}
           <div
             style={{ clipPath: EMERALD_CUT_CLIP }}
-            className="relative aspect-[4/4.9] w-full bg-gradient-to-br from-teal-500/35 via-neutral-800 to-amber-500/30 p-[2px] shadow-[0_28px_70px_rgba(0,0,0,0.75)]"
+            className="relative aspect-[4/4.9] w-full overflow-hidden bg-neutral-100"
           >
-            {/* Inner Cut Image Container */}
-            <div
-              style={{ clipPath: EMERALD_CUT_CLIP }}
-              className="relative w-full h-full overflow-hidden bg-neutral-950"
-            >
-              <Image
-                src={portfolioData.profile.aboutImage}
-                alt="Fadhil Zakwan inspecting rare gemstones at exhibition"
-                fill
-                sizes="(max-width: 1024px) 90vw, 420px"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                priority
-              />
+            <Image
+              src={portfolioData.profile.aboutImage}
+              alt="Fadhil Zakwan inspecting rare gemstones at exhibition"
+              fill
+              sizes="(max-width: 1024px) 90vw, 420px"
+              className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              priority
+            />
 
-              {/* Subtle Editorial Vignette */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/15" />
-
-              {/* Specular Facet Light Sweep on Hover */}
-              <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg]" />
-
-              {/* Bottom Caption Inside Cut Frame */}
-              <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between gap-2 text-white">
-                <div>
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-teal-300">
-                    Field Curation
-                  </span>
-                  <span className="block font-display text-xs sm:text-sm font-bold tracking-tight">
-                    Rare Gem Inspection
-                  </span>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-400/30 bg-black/60 backdrop-blur-md px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>GIA &bull; Trade Floor</span>
-                </span>
-              </div>
-            </div>
+            {/* Specular Light Sweep on Hover */}
+            <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
           </div>
         </motion.div>
       </div>

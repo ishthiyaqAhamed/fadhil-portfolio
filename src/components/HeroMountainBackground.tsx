@@ -131,7 +131,7 @@ export default function HeroMountainBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(8, 25, 18, 0.42) 0%, rgba(11, 32, 23, 0.28) 44%, rgba(6, 20, 14, 0.52) 100%)",
+            "linear-gradient(180deg, rgba(8, 25, 18, 0.42) 0%, rgba(11, 32, 23, 0.28) 44%, rgba(6, 20, 14, 0.22) 76%, rgba(6, 20, 14, 0) 100%)",
         }}
       />
 
@@ -181,7 +181,7 @@ export default function HeroMountainBackground() {
       </div>
 
       {/* Layer 3: Fast foreground valley mist wisps (Left -> Right, Seamless 2x loop) */}
-      <div className="absolute inset-x-0 bottom-[-6%] h-[40%] overflow-hidden opacity-32 mix-blend-screen">
+      <div className="absolute inset-x-0 bottom-[6%] h-[40%] overflow-hidden opacity-35 mix-blend-screen">
         <motion.div
           className="flex h-full w-[200%] will-change-transform"
           animate={
@@ -208,7 +208,16 @@ export default function HeroMountainBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 68% 48% at 50% 48%, rgba(7, 24, 17, 0.42) 0%, rgba(7, 24, 17, 0.14) 55%, rgba(7, 24, 17, 0) 100%)",
+            "radial-gradient(ellipse 68% 46% at 50% 45%, rgba(7, 24, 17, 0.38) 0%, rgba(7, 24, 17, 0.12) 54%, rgba(7, 24, 17, 0) 100%)",
+        }}
+      />
+
+      {/* Smooth Bottom Atmospheric Mist Dissolve into White About Section */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-[36%] sm:h-[34%]"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 26%, rgba(255,255,255,0.44) 55%, rgba(255,255,255,0.82) 78%, rgba(255,255,255,0.97) 93%, #ffffff 100%)",
         }}
       />
     </div>
