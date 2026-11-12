@@ -133,8 +133,8 @@ export const portfolioData = {
 
   featuredGemBlog: {
     badge: "Personal Presentation",
-    titleLine1: "Blogs",
-    titleLine2: "About gem",
+    titleLine1: "Personal",
+    titleLine2: "Blogs",
     intro:
       "An intimate editorial look into the refraction, geological provenance, and light architecture of rare gemstones — documented through monochrome photography and field notes.",
     image: "/images/gem-featured.jpg",
