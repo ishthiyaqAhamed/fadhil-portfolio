@@ -24,7 +24,7 @@ export default function BlogIndexPage() {
   return (
     <>
       <Navbar isSubpage />
-      <main className="min-h-screen bg-white text-[#0d0d0d] pt-28 sm:pt-36 pb-20 px-5 sm:px-8 lg:px-12 relative overflow-hidden">
+      <main className="flex-1 bg-white text-[#0d0d0d] pt-28 sm:pt-36 pb-20 px-5 sm:px-8 lg:px-12 relative overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-0 w-[340px] h-[340px] diagonal-corner-light-tl"

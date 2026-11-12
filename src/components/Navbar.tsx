@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 export default function Navbar({ isSubpage = false }: { isSubpage?: boolean }) {
@@ -168,9 +168,12 @@ export default function Navbar({ isSubpage = false }: { isSubpage?: boolean }) {
                     }`}
                   >
                     <span>{item.label}</span>
-                    <span className={overHero ? "text-xs text-emerald-300" : "text-xs text-neutral-400"}>
-                      ↗
-                    </span>
+                    <ArrowUpRight
+                      className={`w-4 h-4 ${
+                        overHero ? "text-emerald-300/90" : "text-neutral-400"
+                      }`}
+                      strokeWidth={2}
+                    />
                   </Link>
                 </li>
               ))}

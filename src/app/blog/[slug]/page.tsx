@@ -43,7 +43,7 @@ export default async function BlogDetailPage({
   return (
     <>
       <Navbar isSubpage />
-      <main className="min-h-screen bg-white text-[#0d0d0d] pt-28 sm:pt-36 pb-20 px-5 sm:px-8 lg:px-12">
+      <main className="flex-1 bg-white text-[#0d0d0d] pt-28 sm:pt-36 pb-20 px-5 sm:px-8 lg:px-12">
         <article className="max-w-4xl mx-auto">
           <Link
             href="/blog"

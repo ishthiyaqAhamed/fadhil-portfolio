@@ -45,9 +45,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full bg-white text-[#0d0d0d] border-t border-neutral-200 overflow-hidden">
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 py-14 sm:py-16">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+    <footer className="relative w-full m-0 p-0 bg-white text-[#0d0d0d] border-t border-neutral-200 overflow-hidden">
+      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 pt-10 sm:pt-12 pb-8 sm:pb-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10">
           {/* Brand Summary */}
           <div>
             <Link
@@ -85,37 +85,37 @@ export default function Footer() {
             })}
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-7 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs font-semibold tracking-[0.08em] text-neutral-600 uppercase">
-            {portfolioData.navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={`/${link.href}`}
-                className="hover:text-[#0d0d0d] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-5">
-            <p className="text-xs text-neutral-500">
-              &copy; {new Date().getFullYear()} {portfolioData.profile.fullName}. All
-              rights reserved.
-            </p>
-            <motion.button
-              type="button"
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              whileHover={{ scale: 1.08, y: -2 }}
-              whileTap={{ scale: 0.94 }}
-              className="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center hover:bg-teal-800 transition-colors cursor-pointer"
+      {/* Bottom Bar Flush to Viewport Edge */}
+      <div className="w-full bg-neutral-50 border-t border-neutral-200 px-6 sm:px-10 lg:px-16 xl:px-20 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs font-semibold tracking-[0.08em] text-neutral-600 uppercase">
+          {portfolioData.navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={`/${link.href}`}
+              className="hover:text-[#0d0d0d] transition-colors"
             >
-              <ArrowUp className="w-4 h-4" />
-            </motion.button>
-          </div>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-5">
+          <p className="text-xs text-neutral-500">
+            &copy; {new Date().getFullYear()} {portfolioData.profile.fullName}. All
+            rights reserved.
+          </p>
+          <motion.button
+            type="button"
+            onClick={scrollToTop}
+            aria-label="Back to top"
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center hover:bg-teal-800 transition-colors cursor-pointer"
+          >
+            <ArrowUp className="w-4 h-4" />
+          </motion.button>
         </div>
       </div>
     </footer>

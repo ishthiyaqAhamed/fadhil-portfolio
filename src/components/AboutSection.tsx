@@ -12,21 +12,18 @@ import { portfolioData } from "@/data/portfolio";
 import { FadeUp } from "./MotionPrimitives";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./SocialIcons";
 
-const EMERALD_CUT_CLIP =
-  "polygon(10% 0%, 90% 0%, 100% 8%, 100% 92%, 90% 100%, 10% 100%, 0% 92%, 0% 8%)";
-
 export default function AboutSection() {
   const frameRef = useRef<HTMLDivElement>(null);
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
 
-  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [7, -7]), {
+  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [4, -4]), {
     stiffness: 180,
-    damping: 22,
+    damping: 24,
   });
-  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-7, 7]), {
+  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-4, 4]), {
     stiffness: 180,
-    damping: 22,
+    damping: 24,
   });
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -46,7 +43,7 @@ export default function AboutSection() {
       id="about"
       className="relative w-full bg-white grid grid-cols-1 lg:grid-cols-2 min-h-[680px] lg:min-h-[760px] overflow-hidden"
     >
-      {/* Left Half: Clean White Backdrop with Same-Size Creative Faceted Portrait Image Only */}
+      {/* Left Half: Clean White Backdrop with Editorial Gallery-Framed Portrait */}
       <div className="relative bg-white flex items-center justify-center px-6 sm:px-12 lg:px-14 py-16 sm:py-20 lg:py-24 overflow-hidden">
         <motion.div
           ref={frameRef}
@@ -61,31 +58,29 @@ export default function AboutSection() {
             rotateX,
             rotateY,
           }}
-          className="relative z-10 w-full max-w-[390px] sm:max-w-[420px] group drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
+          className="relative z-10 w-full max-w-[390px] sm:max-w-[420px] group"
         >
-          {/* Subtle Light Offset Faceted Silhouette */}
+          {/* Minimal Architectural Offset Hairline Accent */}
           <div
             aria-hidden="true"
-            style={{ clipPath: EMERALD_CUT_CLIP }}
-            className="absolute -inset-3 translate-x-3 translate-y-3 bg-teal-600/[0.06] border border-teal-700/15 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4"
+            className="pointer-events-none absolute inset-0 translate-x-3.5 translate-y-3.5 rounded-[28px] border border-teal-700/20 transition-transform duration-500 ease-out group-hover:translate-x-4.5 group-hover:translate-y-4.5"
           />
 
-          {/* Main Emerald-Cut Photograph Only */}
-          <div
-            style={{ clipPath: EMERALD_CUT_CLIP }}
-            className="relative aspect-[4/4.9] w-full overflow-hidden bg-neutral-100"
-          >
-            <Image
-              src={portfolioData.profile.aboutImage}
-              alt="Fadhil Zakwan inspecting rare gemstones at exhibition"
-              fill
-              sizes="(max-width: 1024px) 90vw, 420px"
-              className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              priority
-            />
+          {/* Clean Museum-Matted Rounded Portrait Frame */}
+          <div className="relative rounded-[28px] bg-white p-2 sm:p-2.5 shadow-[0_24px_60px_-14px_rgba(13,13,13,0.18)] ring-1 ring-black/8">
+            <div className="relative aspect-[4/4.9] w-full overflow-hidden rounded-[20px] bg-neutral-100">
+              <Image
+                src={portfolioData.profile.aboutImage}
+                alt="Fadhil Zakwan inspecting rare gemstones at exhibition"
+                fill
+                sizes="(max-width: 1024px) 90vw, 420px"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                priority
+              />
 
-            {/* Specular Light Sweep on Hover */}
-            <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
+              {/* Subtle Hover Sheen */}
+              <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg]" />
+            </div>
           </div>
         </motion.div>
       </div>
@@ -97,16 +92,15 @@ export default function AboutSection() {
           className="pointer-events-none absolute bottom-0 right-0 w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] diagonal-corner-light-br"
         />
 
-        <div className="relative z-10 my-auto max-w-lg">
+        <div className="relative z-10 my-auto max-w-xl">
           <FadeUp>
-            <h2 className="font-display font-extrabold tracking-[-0.035em] text-[clamp(2.75rem,5.2vw,4.5rem)] leading-[0.94] text-[#0d0d0d]">
+            <h2 className="font-display font-extrabold tracking-[-0.035em] text-[clamp(2.15rem,4.1vw,3.85rem)] leading-[1.02] text-[#0d0d0d]">
               <span className="block">Hi, I’m</span>
-              <span className="block">Fadhil</span>
-              <span className="block">Zakwan</span>
+              <span className="block whitespace-nowrap">Fadhil Zakwan</span>
             </h2>
           </FadeUp>
 
-          <FadeUp delay={0.12} className="mt-7 sm:mt-8 space-y-4">
+          <FadeUp delay={0.12} className="mt-7 sm:mt-8 space-y-4 max-w-lg">
             <p className="text-[15px] sm:text-base leading-[1.7] text-[#262626] font-normal">
               {portfolioData.profile.aboutBio}
             </p>

@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-white text-[#0d0d0d] font-sans selection:bg-[#0d0d0d] selection:text-white">
+      <body className="flex min-h-screen flex-col m-0 p-0 bg-white text-[#0d0d0d] font-sans selection:bg-[#0d0d0d] selection:text-white">
         {children}
       </body>
     </html>

@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col w-full overflow-x-hidden">
+      <main className="flex-1 flex flex-col w-full overflow-x-hidden">
         <HeroSection />
         <AboutSection />
         <EducationSection />
